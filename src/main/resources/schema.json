@@ -1,0 +1,39 @@
+{
+  "title": "Example Schema",
+  "type": "object",
+  "definitions": {
+    "SomeInterfaceListType": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/SomeInterface"
+      }
+    },
+    "SomeInterface": {
+      "type": "object",
+      "properties": {
+        "a": {
+          "$ref": "#/definitions/SomeInterfaceListType"
+        },
+        "b": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "b"
+      ]
+    }
+  },
+  "properties": {
+    "firstName": {
+      "$ref": "#/definitions/SomeInterface"
+    },
+    "lastName": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "firstName",
+    "lastName"
+  ]
+}
